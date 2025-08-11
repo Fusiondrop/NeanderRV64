@@ -1,0 +1,16 @@
+Test 1: 0000 + 0001 = 0001 / Cout= 0
+Test 2: 0000 - 0001 = 1111 / Cout= 0
+Test 3: 0001 + 0000 = 0001 / Cout= 0
+Test 4: 0001 - 0000 = 0001 / Cout= 1
+Test 5: 0000 + 1111 = 1111 / Cout= 0
+Test 6: 0001 + 1111 = 0000 / Cout= 1
+Test 7: 0010 + 1111 = 0001 / Cout= 1
+Test 8: 0010 + 1010 = 1100 / Cout= 0
+Test 9: 0111 - 1111 = 1000 / Cout= 0
+Test 10: 1111 - 0000 = 1111 / Cout= 1
+Test 11: 0000 - 1111 = 0001 / Cout= 0
+Test 12: 0001 - 0001 = 0000 / Cout= 1
+All testes got completed.
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: end at 120ps; walltime 0.003 s; speed 34.903 ns/s
+- Verilator: cpu 0.003 s on 1 threads; alloced 25 MB
