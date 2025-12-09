@@ -1,0 +1,47 @@
+==== Teste 1: SD (store doubleword) ====
+ [T1] addr = 0x0000000000000000 (index=0), escrito = 0x0011223344556677, lido = 0x0011223344556677
+Teste 1 PASS
+
+==== Teste 2: SB (store byte) ====
+ [T2] Antes do SB: mem[0] = 0x0011223344556677
+ [T2] Depois do SB: mem[0] = 0x0011223344aa6677 (esperado 0x00112233_44AA6677)
+Teste 2 PASS
+
+==== Teste 3: SW (store word, 4 bytes) ====
+ [T3] Antes do SW: mem[0] = 0x0011223344aa6677
+ [T3] Depois do SW: mem[0] = 0x00112233deadbeef (esperado 0x00112233_DEADBEEF)
+Teste 3 PASS
+
+==== Teste 3b: SH (store half-word, 2 bytes) ====
+ [T3b] Antes do SH: mem[0] = 0x00112233deadbeef
+ [T3b] Depois do SH: mem[0] = 0x00112233deada1b2 (esperado 0x00112233DEADA1B2)
+Teste 3b PASS
+
+==== Teste 4: Não escrever quando writeEnable=0 ====
+ [T4] Tentativa de escrita sem enable, mem[0] = 0x00112233deada1b2
+Teste 4 PASS
+
+==== Teste 5: Varredura de espaço de memória (primeiras posições) ====
+ Endereço (bytes) | Index [12:3] | Dado escrito           | Dado lido              | Resultado
+ 0x0000000000000000 |    0        | 0x0000000000000000 | 0x0000000000000000 | OK
+ 0x0000000000000008 |    1        | 0x0101010101010101 | 0x0101010101010101 | OK
+ 0x0000000000000010 |    2        | 0x0202020202020202 | 0x0202020202020202 | OK
+ 0x0000000000000018 |    3        | 0x0303030303030303 | 0x0303030303030303 | OK
+ 0x0000000000000020 |    4        | 0x0404040404040404 | 0x0404040404040404 | OK
+ 0x0000000000000028 |    5        | 0x0505050505050505 | 0x0505050505050505 | OK
+ 0x0000000000000030 |    6        | 0x0606060606060606 | 0x0606060606060606 | OK
+ 0x0000000000000038 |    7        | 0x0707070707070707 | 0x0707070707070707 | OK
+ 0x0000000000000040 |    8        | 0x0808080808080808 | 0x0808080808080808 | OK
+ 0x0000000000000048 |    9        | 0x0909090909090909 | 0x0909090909090909 | OK
+ 0x0000000000000050 |   10        | 0x0a0a0a0a0a0a0a0a | 0x0a0a0a0a0a0a0a0a | OK
+ 0x0000000000000058 |   11        | 0x0b0b0b0b0b0b0b0b | 0x0b0b0b0b0b0b0b0b | OK
+ 0x0000000000000060 |   12        | 0x0c0c0c0c0c0c0c0c | 0x0c0c0c0c0c0c0c0c | OK
+ 0x0000000000000068 |   13        | 0x0d0d0d0d0d0d0d0d | 0x0d0d0d0d0d0d0d0d | OK
+ 0x0000000000000070 |   14        | 0x0e0e0e0e0e0e0e0e | 0x0e0e0e0e0e0e0e0e | OK
+ 0x0000000000000078 |   15        | 0x0f0f0f0f0f0f0f0f | 0x0f0f0f0f0f0f0f0f | OK
+
+==== TODOS OS TESTES FINALIZADOS ====
+- testbench/tb_DataMemory.sv:212: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 230ps; walltime 0.001 s; speed 305.074 ns/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 25 MB
