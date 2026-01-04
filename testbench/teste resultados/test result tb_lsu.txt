@@ -1,0 +1,16 @@
+[PASS] IDLE
+[PASS] INVALID load&&store
+[PASS] STORE SB aligned (off=3)
+[PASS] STORE SH aligned (off=2)
+[PASS] STORE SW aligned (off=4)
+[PASS] STORE SD aligned (off=0)
+[PASS] STORE SH misaligned (off=1)
+[PASS] LOAD LWU aligned (off=4)
+[PASS] LOAD LW misaligned (off=2)
+[PASS] LOAD LD misaligned (off=4)
+
+ALL LSU TESTS PASSED
+- testbench/tb_lsu.sv:254: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 11ps; walltime 0.000 s; speed 20.738 ns/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 25 MB

@@ -6,7 +6,7 @@ module tb_ula();
     logic [3:0]   ALUControl;
 
     // sinais de saída
-    wire [N-1:0] out;
+    wire [N-1:0] ALUOut;
     wire         Overflow;
     wire         Carry;
     wire         Negative;
@@ -39,7 +39,7 @@ module tb_ula();
                 code,
                 dataA, $signed(dataA),
                 dataB, $signed(dataB),
-                out, $signed(out), out,
+                ALUOut, $signed(ALUOut), ALUOut,
                 Zero, Negative, Carry, Overflow
             );
         end
