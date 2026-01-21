@@ -12,11 +12,11 @@ module rippleSubAdder #(
     wire [N-1:0] carry;
 
 
-    mux2_1 #(.N(1)) mux0(
-        .d0(B[0]),
-        .d1(~B[0]),
+    mux2 #(.N(1)) mux0(
+        .data0(B[0]),
+        .data1(~B[0]),
         .sel(D),
-        .y(y_mux[0])
+        .mux_out(y_mux[0])
     );
     fullAdder fa0(
         .a(A[0]),
@@ -29,11 +29,11 @@ module rippleSubAdder #(
     genvar i;
     generate
         for(i = 1; i < N; i++) begin: full_adder_chain
-            mux2_1 #(.N(1)) mux(
-                .d0(B[i]),
-                .d1(~B[i]),
+            mux2 #(.N(1)) mux(
+                .data0(B[i]),
+                .data1(~B[i]),
                 .sel(D),
-                .y(y_mux[i])
+                .mux_out(y_mux[i])
             );
             fullAdder fa(
                 .a(A[i]),

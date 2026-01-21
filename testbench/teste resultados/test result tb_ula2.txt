@@ -1,0 +1,26 @@
+=== Iniciando teste ULA (N=64) ===
+10 | ADD small          | ALU=0 | W=0 | A=0xa (10) | B=0x14 (20) | out=0x1e (30 signed 30 unsigned) | Z=0 N=0 C=0 V=0
+20 | ADD overflow       | ALU=0 | W=0 | A=0x7fffffffffffffff (9223372036854775807) | B=0x1 (1) | out=0x8000000000000000 (-9223372036854775808 signed 9223372036854775808 unsigned) | Z=0 N=1 C=0 V=1
+30 | SUB small          | ALU=1000 | W=0 | A=0x14 (20) | B=0xa (10) | out=0xa (10 signed 10 unsigned) | Z=0 N=0 C=1 V=0
+40 | SUB overflow       | ALU=1000 | W=0 | A=0x8000000000000000 (-9223372036854775808) | B=0x1 (1) | out=0x7fffffffffffffff (9223372036854775807 signed 9223372036854775807 unsigned) | Z=0 N=0 C=1 V=1
+50 | AND                | ALU=111 | W=0 | A=0xcc (204) | B=0xaa (170) | out=0x88 (136 signed 136 unsigned) | Z=0 N=0 C=0 V=0
+60 | OR                 | ALU=110 | W=0 | A=0xcc (204) | B=0xaa (170) | out=0xee (238 signed 238 unsigned) | Z=0 N=0 C=0 V=0
+70 | XOR                | ALU=100 | W=0 | A=0xcc (204) | B=0xaa (170) | out=0x66 (102 signed 102 unsigned) | Z=0 N=0 C=0 V=0
+80 | SLL                | ALU=1 | W=0 | A=0x1 (1) | B=0x3 (3) | out=0x8 (8 signed 8 unsigned) | Z=0 N=0 C=0 V=0
+90 | SRL                | ALU=101 | W=0 | A=0x8 (8) | B=0x3 (3) | out=0x1 (1 signed 1 unsigned) | Z=0 N=0 C=0 V=0
+100 | SRA                | ALU=1101 | W=0 | A=0x8000000000000000 (-9223372036854775808) | B=0x2 (2) | out=0xe000000000000000 (-2305843009213693952 signed 16140901064495857664 unsigned) | Z=0 N=1 C=0 V=0
+110 | SLT  True          | ALU=10 | W=0 | A=0xffffffffffffffff (-1) | B=0x1 (1) | out=0x1 (1 signed 1 unsigned) | Z=0 N=0 C=0 V=0
+120 | SLTU False         | ALU=11 | W=0 | A=0xffffffffffffffff (-1) | B=0x1 (1) | out=0x0 (0 signed 0 unsigned) | Z=1 N=0 C=0 V=0
+130 | SLT  False         | ALU=10 | W=0 | A=0x1 (1) | B=0xffffffffffffffff (-1) | out=0x0 (0 signed 0 unsigned) | Z=1 N=0 C=0 V=0
+140 | SLTU True          | ALU=11 | W=0 | A=0x1 (1) | B=0xffffffffffffffff (-1) | out=0x1 (1 signed 1 unsigned) | Z=0 N=0 C=0 V=0
+150 | ADDW               | ALU=0 | W=1 | A=0xa (10) | B=0x14 (20) | out=0x1e (30 signed 30 unsigned) | Z=0 N=0 C=0 V=0
+160 | SUBW               | ALU=1000 | W=1 | A=0x14 (20) | B=0xa (10) | out=0xa (10 signed 10 unsigned) | Z=0 N=0 C=0 V=0
+170 | ADDW wrap          | ALU=0 | W=1 | A=0x1ffffffff (8589934591) | B=0x1 (1) | out=0x0 (0 signed 0 unsigned) | Z=1 N=0 C=0 V=0
+180 | SLLW               | ALU=1 | W=1 | A=0x80000001 (2147483649) | B=0x1 (1) | out=0x2 (2 signed 2 unsigned) | Z=0 N=0 C=0 V=0
+190 | SRLW               | ALU=101 | W=1 | A=0xffffffff80000000 (-2147483648) | B=0x1f (31) | out=0x1 (1 signed 1 unsigned) | Z=0 N=0 C=0 V=0
+200 | SRAW               | ALU=1101 | W=1 | A=0x80000000 (2147483648) | B=0x1f (31) | out=0xffffffffffffffff (-1 signed 18446744073709551615 unsigned) | Z=0 N=1 C=0 V=0
+=== FIM DOS TESTES ===
+- testbench/tb_ula.sv:107: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 210ps; walltime 0.001 s; speed 169.870 ns/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 25 MB
