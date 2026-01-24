@@ -73,6 +73,8 @@ module Datapath #(
     wire [N-1:0] w_mux_pc_next;  //! PC_next (entrada do registrador PC)
     wire [N-1:0] pc_target;      //! Alvo (branch/jump), vindo da ULA (com máscara p/ JALR)
     wire [31:0]  instr;          //! Instrução lida (sempre 32 bits)
+    wire [N-1:0] pc_plus_imm;    //! Fio do Somador de pc_index + immediato tipo B 
+    wire [N-1:0] jalr_target;    //! Resultado da operação da ULA jalr concatenado com o fio 0
 
     // --------------------------------------------------------
     // (2) Decode / RegisterFile / Imediatos
@@ -114,7 +116,15 @@ module Datapath #(
          Caso contrário:
            pc_target = ALUResult
      -------------------------------------------------------- */
-    assign pc_target = JALR ? {ALUResult[N-1:1], 1'b0} : ALUResult;
+    assign pc_plus_imm  = pc_index + imm_ext;
+    assign jalr_target  = {ALUResult[N-1:1], 1'b0};
+
+    mux2 #(.N(N)) mux_pc_target_jalr(
+        .data0(pc_plus_imm),
+        .data1(jalr_target),
+        .sel(JALR),
+        .mux_out(pc_target)
+    );
 
     // --------------------------------------------------------
     // (1) Fetch: PC -> InstructionMemory + PC+4

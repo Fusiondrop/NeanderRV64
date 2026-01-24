@@ -1,12 +1,12 @@
 TOOL_COMP = verilator
-VERILATOR_FLAGS = --binary --timing --top-module tb_datapath
+VERILATOR_FLAGS = --binary --timing --top-module tb_controlunit
 
 GENERIC_SRCS = \
 	./Generic_components/mux2.sv \
 	./Generic_components/mux3.sv \
 	./Generic_components/mux4.sv
 
-NEANDER_RV64I = \
+DATAPATH = \
 	./Datapath/ULA/ZeroExtender.sv \
 	./Datapath/ULA/SignExtender.sv \
 	./Datapath/ULA/srl.sv \
@@ -25,10 +25,13 @@ NEANDER_RV64I = \
 	./Datapath/DataMemory/DataMemory.sv \
 	./Datapath/Datapath.sv
 
-TESTBENCH = ./testbench/tb_datapath.sv
+CONTROL_UNIT = \
+	./ControlUnit/ControlUnit.sv
+
+TESTBENCH = ./testbench/tb_controlunit.sv
 
 all:
-	$(TOOL_COMP) $(VERILATOR_FLAGS) $(GENERIC_SRCS) $(NEANDER_RV64I) $(TESTBENCH)
+	$(TOOL_COMP) $(VERILATOR_FLAGS) $(CONTROL_UNIT) $(TESTBENCH)
 
 clean:
 	rm -rf obj_dir

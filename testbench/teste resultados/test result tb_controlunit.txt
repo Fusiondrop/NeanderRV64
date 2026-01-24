@@ -1,0 +1,42 @@
+[ OK ] DEFAULT/UNKNOWN opcode
+[ OK ] OP ADD
+[ OK ] OP SUB
+[ OK ] OP SRL
+[ OK ] OP SRA
+[ OK ] OP SLT
+[ OK ] OP SLTU
+[ OK ] OP-IMM ADDI
+[ OK ] OP-IMM SRLI
+[ OK ] OP-IMM SRAI
+[ OK ] LOAD
+[ OK ] STORE
+[ OK ] LUI
+[ OK ] AUIPC
+[ OK ] JAL
+[ OK ] JALR
+[ OK ] OP-32 ADDW
+[ OK ] OP-32 SUBW
+[ OK ] OP-IMM-32 ADDIW
+[ OK ] OP-IMM-32 SRLIW
+[ OK ] OP-IMM-32 SRAIW
+[ OK ] BEQ taken
+[ OK ] BEQ not taken
+[ OK ] BNE taken
+[ OK ] BNE not taken
+[ OK ] BLT taken
+[ OK ] BLT not taken
+[ OK ] BGE taken
+[ OK ] BGE not taken
+[ OK ] BLTU taken
+[ OK ] BLTU not taken
+[ OK ] BGEU taken
+[ OK ] BGEU not taken
+
+==============================
+ALL CONTROL UNIT TESTS PASSED
+==============================
+
+- testbench/tb_controlunit.sv:334: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 33ps; walltime 0.001 s; speed 53.323 ns/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 25 MB
