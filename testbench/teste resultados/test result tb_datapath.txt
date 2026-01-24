@@ -1,0 +1,64 @@
+%Warning: program.hex:0: $readmem file not found
+[ OK ] ADD | x3 = 0x000000000000001e
+[ OK ] SUB (10-20) | x3 = 0xfffffffffffffff6
+[ OK ] AND | x3 = 0x0f000f000f000f00
+[ OK ] OR | x3 = 0xffffffffffffffff
+[ OK ] XOR | x3 = 0x5555aaaa5555aaaa
+[ OK ] SLL | x3 = 0x0000000000000008
+[ OK ] SRL | x3 = 0x4000000000000000
+[ OK ] SRA | x3 = 0xc000000000000000
+[ OK ] SLT signed (-1 < 1) | x3 = 0x0000000000000001
+[ OK ] SLTU (max < 1) false | x3 = 0x0000000000000000
+[ OK ] ADDI | x3 = 0x000000000000001e
+[ OK ] ANDI | x3 = 0x00000000000000f0
+[ OK ] ORI | x3 = 0x00000000000000ff
+[ OK ] XORI | x3 = 0x0000000000000055
+[ OK ] SLLI | x3 = 0x0000000000000008
+[ OK ] SRLI | x3 = 0x4000000000000000
+[ OK ] SRAI | x3 = 0xc000000000000000
+[ OK ] SLTI (-1 < 1) | x3 = 0x0000000000000001
+[ OK ] SLTIU (max < 1) false | x3 = 0x0000000000000000
+[ OK ] LUI | x3 = 0x0000000012345000
+[ OK ] AUIPC (PC=8) | x3 = 0x0000000000001008
+[ OK ] LB | x3 = 0xffffffffffffff80
+[ OK ] LBU | x3 = 0x0000000000000080
+[ OK ] LH | x3 = 0xffffffffffff8000
+[ OK ] LHU | x3 = 0x0000000000008000
+[ OK ] LW (RV64 sign-ext) | x3 = 0xffffffff80000000
+[ OK ] LD | x3 = 0x1122334455667788
+[ OK ] LWU | x3 = 0x0000000080000000
+[ OK ] SD
+[ OK ] SW
+[ OK ] SB
+[ OK ] SH
+[ OK ] BEQ taken | x3 = 0x0000000000000002
+[ OK ] BNE not taken | x3 = 0x0000000000000001
+[ OK ] BLT taken | x3 = 0x0000000000000002
+[ OK ] BGE taken | x3 = 0x0000000000000002
+[ OK ] BGE not taken | x3 = 0x0000000000000001
+[ OK ] BLTU taken | x3 = 0x0000000000000002
+[ OK ] BLTU not taken | x3 = 0x0000000000000001
+[ OK ] BGEU taken | x3 = 0x0000000000000002
+[ OK ] BGEU not taken | x3 = 0x0000000000000001
+[ OK ] JAL link x1=PC+4 | x1 = 0x0000000000000004
+[ OK ] JAL jump target | x3 = 0x0000000000000002
+[ OK ] JALR link | x1 = 0x0000000000000004
+[ OK ] JALR target @8 | x3 = 0x0000000000000002
+[ OK ] ADDW sign-ext low32 | x3 = 0x0000000000000000
+[ OK ] SUBW -> -1 | x3 = 0xffffffffffffffff
+[ OK ] ADDIW sign-ext | x3 = 0xffffffff80000000
+[ OK ] SLLW mask shamt[4:0] | x3 = 0x0000000000000002
+[ OK ] SRLW | x3 = 0x0000000040000000
+[ OK ] SRAW | x3 = 0xffffffffc0000000
+[ OK ] SLLIW | x3 = 0xffffffff80000000
+[ OK ] SRLIW | x3 = 0x0000000040000000
+[ OK ] SRAIW | x3 = 0xffffffffc0000000
+
+==========================
+ALL DATAPATH TESTS PASSED
+==========================
+
+- testbench/tb_datapath.sv:920: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 405ps; walltime 0.002 s; speed 208.657 ns/s
+- Verilator: cpu 0.002 s on 1 threads; alloced 25 MB

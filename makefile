@@ -1,5 +1,5 @@
 TOOL_COMP = verilator
-VERILATOR_FLAGS = --binary --timing --top-module tb_ula
+VERILATOR_FLAGS = --binary --timing --top-module tb_datapath
 
 GENERIC_SRCS = \
 	./Generic_components/mux2.sv \
@@ -14,10 +14,18 @@ NEANDER_RV64I = \
 	./Datapath/ULA/sll.sv \
 	./Datapath/ULA/rippleSubAdder.sv \
 	./Datapath/ULA/comparator.sv \
-	./Datapath/ULA/ULA.sv
+	./Datapath/ULA/ULA.sv \
+	./Datapath/ImmGenerator.sv \
+	./Datapath/RegisterFile/RegisterFile.sv \
+	./Datapath/PC/ProgramCounter_inc.sv \
+	./Datapath/PC/ProgramCounter.sv \
+	./Datapath/LSU/LoadExtender.sv \
+	./Datapath/LSU/LSU.sv \
+	./Datapath/InstructionMemory/InstructionMemory.sv \
+	./Datapath/DataMemory/DataMemory.sv \
+	./Datapath/Datapath.sv
 
-
-TESTBENCH = ./testbench/tb_ula.sv
+TESTBENCH = ./testbench/tb_datapath.sv
 
 all:
 	$(TOOL_COMP) $(VERILATOR_FLAGS) $(GENERIC_SRCS) $(NEANDER_RV64I) $(TESTBENCH)
