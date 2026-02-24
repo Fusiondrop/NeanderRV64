@@ -77,7 +77,7 @@ O programa escreve uma assinatura em um endereço da DataMemory, e o testbench e
 
 ## 4) Executando o processador com o HEX
 ```bash
-./obj_dir/Vtb_processor +HEX=program.hex +MAXCYC=5000 +SIGADDR=0 +SIG=0000000000c0ffee
+./obj_dir/Vtb_processor +HEX=program.hex +MAXCYC=5000 +SIGADDR=0x1FF8 +SIG=0000000000c0ffee
 ```
 obs: Infelizmente, valores diferentes do parâmetro não funcionam, pois é necessário alterar o arquivo .c para observar esses valores em comum, será necessário implementação de macro para que o main.c e a compilação do verilator funcionem para diferentes valores que forem inseridos. O máximo valor teórico no endereçamento é 0x1FF8.
 

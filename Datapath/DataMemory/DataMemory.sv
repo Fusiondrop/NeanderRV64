@@ -15,7 +15,7 @@
 //   por meio do sinal writeMask, normalmente gerado pela LSU.
 // ------------------------------------------------------------
 module DataMemory #(
-    parameter N = 64               //! Parâmetro do XLEN: 32 para RV32 ou 64 para RV64
+    parameter N = 16               //! Parâmetro do XLEN: 32 para RV32 ou 64 para RV64
 )(
     input  logic             clk,         //! Clock do sistema
     input  logic             writeEnable, //! Habilita operação de escrita (STORE)

@@ -1,5 +1,5 @@
 TOOL_COMP = verilator
-VERILATOR_FLAGS = --binary --timing --top-module tb_top
+VERILATOR_FLAGS = --binary --timing
 
 GENERIC_SRCS = \
 	./Generic_components/mux2.sv \
@@ -34,10 +34,15 @@ TOP_LEVEL = \
 PROGRAM_HEX = \
 	./program.hex
 
-TESTBENCH = ./testbench/tb_top.sv
+MODULE_TARGET = ./Datapath/PC/ProgramCounter.sv
+
+TESTBENCH = ./testbench/tb_ProgramCounter.sv
 
 all:
 	$(TOOL_COMP) $(VERILATOR_FLAGS) $(CONTROL_UNIT) $(GENERIC_SRCS) $(DATAPATH) $(TOP_LEVEL) $(TESTBENCH)
+
+test_module:
+	$(TOOL_COMP) $(VERILATOR_FLAGS) $(MODULE_TARGET) $(TESTBENCH)
 
 processor:
 	$(TOOL_COMP) --binary --timing --top-module tb_processor $(GENERIC_SRCS) $(DATAPATH) $(CONTROL_UNIT) ./testbench/tb_processor.sv

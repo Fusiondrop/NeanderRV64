@@ -1,0 +1,11 @@
+Teste 1 OK: x0 = 0
+Teste 2 OK: x1 escrito e lido
+Teste 3 OK: dupla leitura (x2 e x1)
+Teste 4 OK: escrita em x0 ignorada
+Teste 5 OK: x1 sobrescrito
+Teste 6 OK: writeEnable=0 nao escreve
+Todos os testes do RegisterFile finalizaram.
+- testbench/tb_RegisterFile.sv:95: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 50ps; walltime 0.001 s; speed 50.072 ns/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 25 MB

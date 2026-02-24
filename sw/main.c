@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-#define OUT_ADDR 0x0
+#define OUT_ADDR 0x1FF8
 #define BUF_ADDR 0x100
 
 static inline void mmio_write64(uint64_t addr, uint64_t v) {

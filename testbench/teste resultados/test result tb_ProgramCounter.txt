@@ -1,0 +1,10 @@
+Teste 1 OK: reset -> PC_out = 0000000000000000
+Teste 2 OK: PC_out = 0000000000000004
+Teste 3 OK: PC_out = 0000000000000008
+Teste 4 OK: reset -> PC_out = 0000000000000000
+Teste 5 OK: PC_out = 0000000100000040
+Todos os testes do ProgramCounter finalizaram.
+- testbench/tb_ProgramCounter.sv:65: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 50ps; walltime 0.001 s; speed 77.323 ns/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 25 MB
